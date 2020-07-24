@@ -24,6 +24,11 @@ class ProductRepositoryTest {
     public void shouldThrowNotFoundException() {
         assertThrows(NotFoundException.class, () -> productRepository.removeById(2));
     }
+    @Test
+    public void shouldThrowNotFoundExceptionWithMessage() {
+        NotFoundException exception = assertThrows(NotFoundException.class, () -> productRepository.removeById(2));
+        assertEquals("Element with id: [2] not found", exception.getMessage());
+    }
 
     @Test
     public void shouldDeleteExistingElement() {
