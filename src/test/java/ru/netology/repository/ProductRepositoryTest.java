@@ -28,8 +28,7 @@ class ProductRepositoryTest {
     @Test
     public void shouldDeleteExistingElement() {
         productRepository.removeById(1);
-        Product[] actual = productRepository.findAll();
         Product[] expected = new Product[]{book2};
-        assertArrayEquals(actual,expected);
+        assertArrayEquals(productRepository.findAll(),expected);
     }
 }
